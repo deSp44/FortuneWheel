@@ -68,6 +68,7 @@ namespace FortuneWheel
             // 
             // tbSentence
             // 
+            this.tbSentence.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.tbSentence.Location = new System.Drawing.Point(12, 107);
             this.tbSentence.Multiline = true;
             this.tbSentence.Name = "tbSentence";
@@ -132,6 +133,7 @@ namespace FortuneWheel
             this.MaximumSize = new System.Drawing.Size(368, 234);
             this.MinimumSize = new System.Drawing.Size(368, 234);
             this.Name = "ChooseWord";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form2";
             this.ResumeLayout(false);
             this.PerformLayout();

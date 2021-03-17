@@ -13,47 +13,61 @@ namespace FortuneWheel
 {
     public partial class Guess : Form
     {
-        Sentence data = ChooseWord._sentence;
-        private int counter = 0;
+        Puzzle data = ChooseWord._puzzle; // Object passed
+        private int failCounter = 0;
+
         public Guess()
         {
             InitializeComponent();
 
-            SetData();
+            LoadData();
         }
 
-        public void SetData()
+        public void LoadData()
         {
-            var replace = new Regex("\\S").Replace(data.SentenceToFind, "*");
+            var replace = new Regex("\\S").Replace(data.Sentence, "*");
             lbHiddenSentence.Text = replace;
             lbCategory.Text = $"Kategoria: {data.Category}";
         }
 
-        private void btnAcceptLetter_Click(object sender, EventArgs e)
+        private void btnWithLetter_Click(object sender, EventArgs e)
         {
-            var sentence = data.SentenceToFind.ToLower();
-            var letter = tbGuess.Text.ToLower();   
+            var sentence = data.Sentence.ToUpper();
 
-            //TODO : Duże i małe litery
-
-            //TODO : niepowtarzalność wyszukiwania znaków (zapisywanie char do listy i porównywanie na kliknięciu?)
-
-            var iter = 0;
-            foreach (char c in sentence)
+            if (sender is Button buttonThatClicked)
             {
-                if (c.ToString() == letter)
+                var letter = buttonThatClicked.Text.ToUpper();
+
+                var hit = false;
+                var letterPosition = 0;
+                foreach (char c in sentence)
                 {
-                    lbHiddenSentence.Text = lbHiddenSentence.Text.Remove(iter, 1).Insert(iter, c.ToString());
+                    if (c.ToString() == letter)
+                    {
+                        lbHiddenSentence.Text = lbHiddenSentence.Text.Remove(letterPosition, 1).Insert(letterPosition, c.ToString());
+                        hit = true;
+                    }
+                    letterPosition++;
                 }
-                iter++;
-            }
-            tbGuess.Clear();
-            counter++;
-            lbAttemptsCounter.Text = counter.ToString();
+                if (!hit)
+                {
+                    failCounter++;
+                    buttonThatClicked.Enabled = false;
+                    buttonThatClicked.BackColor = Color.LightCoral;
+                    buttonThatClicked.ForeColor = Color.Red;
+                }
+                else
+                {
+                    buttonThatClicked.Enabled = false;
+                    buttonThatClicked.BackColor = Color.LightGreen;
+                    buttonThatClicked.ForeColor = Color.Green;
+                }
+                lbAttemptsCounter.Text = $"Błędne strzały: {failCounter}";
 
-            if (lbHiddenSentence.Text == sentence)
-            {
-                MessageBox.Show($"Zgadłeś hasło!!! Ilość prób: {counter} :)");
+                if (lbHiddenSentence.Text == sentence)
+                {
+                    MessageBox.Show($"Zgadłeś hasło!!! Błędne strzały: {failCounter} :)");
+                }
             }
         }
     }

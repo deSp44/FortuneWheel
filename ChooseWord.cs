@@ -12,7 +12,7 @@ namespace FortuneWheel
 {
     public partial class ChooseWord : Form
     {
-        public static Sentence _sentence;
+        public static Puzzle _puzzle;
 
         public ChooseWord()
         {
@@ -21,10 +21,10 @@ namespace FortuneWheel
 
         private void btnAccept_Click(object sender, EventArgs e)
         {
-            _sentence = new Sentence
+            _puzzle = new Puzzle
             { 
                 Category = tbCategory.Text,
-                SentenceToFind = tbSentence.Text
+                Sentence = tbSentence.Text
             };
 
             this.Hide();
