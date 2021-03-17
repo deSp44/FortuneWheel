@@ -6,16 +6,13 @@ using System.Threading.Tasks;
 
 namespace FortuneWheel
 {
-    //TODO : Wybór podstawowych kategorii lub wpisywanie własnej
-    //TODO : Prostsze wpisywanie hasła do zgadnięcia (nieakceptowanie ENTER)
-    //TODO : Ulepszenie wyglądu ukrytego hasła
-    //TODO : Przycisk "poddania się"
-    //TODO : Lepszy ekran wygranej wraz z opcjami co użytkownik chce robić dalej
+    //TODO : Okno startowez wyborem trybów - do poprawienia i dodania więcej modyfikacji!
     //TODO : Tryb wisielca - dodanie limitu możliwych błędów
-    //TODO : Dodanie jeszcze jednego okna startowego z wyborem trybów
-    //TODO : Ładniejszy wygląd i ułożenie okien
-    //TODO : Baza haseł z losowym ich wybieraniem
+    //TODO : Zatrzymać licznik po zakończonym zgadywaniu
+    //TODO : Dodanie opcji z przegraną użytkownika
+
     //TODO : Refaktoryzacja kodu i podział na metody
+    //TODO : ??? Baza haseł z losowym ich wybieraniem
 
     public class Puzzle
     {

@@ -15,6 +15,7 @@ namespace FortuneWheel
     {
         Puzzle data = ChooseWord._puzzle; // Object passed
         private int failCounter = 0;
+        int timeCount = 0;
 
         public Guess()
         {
@@ -66,9 +67,42 @@ namespace FortuneWheel
 
                 if (lbHiddenSentence.Text == sentence)
                 {
-                    MessageBox.Show($"Zgadłeś hasło!!! Błędne strzały: {failCounter} :)");
+                    lbMessages.Text = ($"Dobre hasło!!! Błędne strzały: {failCounter} :)");
+                    btnReplay.Enabled = true;
+                    panel1.Enabled = false;
+                    btnGiveUp.Text = "Wyjdź do menu";
                 }
             }
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            timeCount++;
+            lbTimeView.Text = timeCount.ToString() + " s";
+        }
+
+        private void btnGiveUp_Click(object sender, EventArgs e)
+        {
+            if (btnGiveUp.Text == "Wyjdź do menu")
+            {
+                this.Hide();
+                var nextWindow = new MainMenu();
+                nextWindow.ShowDialog();
+                this.Close();
+            }
+
+            lbHiddenSentence.Text = data.Sentence.ToUpper();
+            btnGiveUp.Text = "Wyjdź do menu";
+            panel1.Enabled = false;
+            btnReplay.Enabled = true;
+        }
+
+        private void btnReplay_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            var nextWindow = new ChooseWord();
+            nextWindow.ShowDialog();
+            this.Close();
         }
     }
 }

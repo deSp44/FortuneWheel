@@ -29,6 +29,7 @@ namespace FortuneWheel
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.lbSentence = new System.Windows.Forms.Label();
             this.lbHiddenSentence = new System.Windows.Forms.Label();
             this.lbAttemptsCounter = new System.Windows.Forms.Label();
@@ -70,6 +71,10 @@ namespace FortuneWheel
             this.btnB = new System.Windows.Forms.Button();
             this.btnA = new System.Windows.Forms.Button();
             this.btnGiveUp = new System.Windows.Forms.Button();
+            this.tmrCounter = new System.Windows.Forms.Timer(this.components);
+            this.lbTimeView = new System.Windows.Forms.Label();
+            this.lbMessages = new System.Windows.Forms.Label();
+            this.btnReplay = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -77,11 +82,11 @@ namespace FortuneWheel
             // 
             this.lbSentence.AutoSize = true;
             this.lbSentence.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lbSentence.Location = new System.Drawing.Point(12, 46);
+            this.lbSentence.Location = new System.Drawing.Point(12, 48);
             this.lbSentence.Name = "lbSentence";
-            this.lbSentence.Size = new System.Drawing.Size(182, 19);
+            this.lbSentence.Size = new System.Drawing.Size(119, 19);
             this.lbSentence.TabIndex = 1;
-            this.lbSentence.Text = "Hasło do zgadnięcia: ";
+            this.lbSentence.Text = "Twoje hasło: ";
             // 
             // lbHiddenSentence
             // 
@@ -89,18 +94,18 @@ namespace FortuneWheel
             this.lbHiddenSentence.BackColor = System.Drawing.Color.Silver;
             this.lbHiddenSentence.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lbHiddenSentence.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lbHiddenSentence.Location = new System.Drawing.Point(12, 75);
+            this.lbHiddenSentence.Location = new System.Drawing.Point(16, 78);
             this.lbHiddenSentence.Name = "lbHiddenSentence";
-            this.lbHiddenSentence.Size = new System.Drawing.Size(506, 47);
+            this.lbHiddenSentence.Size = new System.Drawing.Size(502, 47);
             this.lbHiddenSentence.TabIndex = 8;
-            this.lbHiddenSentence.Text = "sample";
+            this.lbHiddenSentence.Text = "?";
             this.lbHiddenSentence.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lbAttemptsCounter
             // 
             this.lbAttemptsCounter.AutoSize = true;
             this.lbAttemptsCounter.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lbAttemptsCounter.Location = new System.Drawing.Point(358, 139);
+            this.lbAttemptsCounter.Location = new System.Drawing.Point(372, 48);
             this.lbAttemptsCounter.Name = "lbAttemptsCounter";
             this.lbAttemptsCounter.Size = new System.Drawing.Size(146, 19);
             this.lbAttemptsCounter.TabIndex = 9;
@@ -110,7 +115,7 @@ namespace FortuneWheel
             // 
             this.lbCategory.AutoSize = true;
             this.lbCategory.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lbCategory.Location = new System.Drawing.Point(12, 9);
+            this.lbCategory.Location = new System.Drawing.Point(12, 18);
             this.lbCategory.Name = "lbCategory";
             this.lbCategory.Size = new System.Drawing.Size(100, 19);
             this.lbCategory.TabIndex = 10;
@@ -154,7 +159,7 @@ namespace FortuneWheel
             this.panel1.Controls.Add(this.btnĄ);
             this.panel1.Controls.Add(this.btnB);
             this.panel1.Controls.Add(this.btnA);
-            this.panel1.Location = new System.Drawing.Point(16, 125);
+            this.panel1.Location = new System.Drawing.Point(16, 139);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(324, 235);
             this.panel1.TabIndex = 12;
@@ -166,6 +171,7 @@ namespace FortuneWheel
             this.btnZ.Name = "btnZ";
             this.btnZ.Size = new System.Drawing.Size(40, 40);
             this.btnZ.TabIndex = 37;
+            this.btnZ.TabStop = false;
             this.btnZ.Text = "Z";
             this.btnZ.UseVisualStyleBackColor = true;
             this.btnZ.Click += new System.EventHandler(this.btnWithLetter_Click);
@@ -177,6 +183,7 @@ namespace FortuneWheel
             this.btnŹ.Name = "btnŹ";
             this.btnŹ.Size = new System.Drawing.Size(40, 40);
             this.btnŹ.TabIndex = 36;
+            this.btnŹ.TabStop = false;
             this.btnŹ.Text = "Ź";
             this.btnŹ.UseVisualStyleBackColor = true;
             this.btnŹ.Click += new System.EventHandler(this.btnWithLetter_Click);
@@ -188,6 +195,7 @@ namespace FortuneWheel
             this.btnY.Name = "btnY";
             this.btnY.Size = new System.Drawing.Size(40, 40);
             this.btnY.TabIndex = 35;
+            this.btnY.TabStop = false;
             this.btnY.Text = "Y";
             this.btnY.UseVisualStyleBackColor = true;
             this.btnY.Click += new System.EventHandler(this.btnWithLetter_Click);
@@ -199,6 +207,7 @@ namespace FortuneWheel
             this.btnŻ.Name = "btnŻ";
             this.btnŻ.Size = new System.Drawing.Size(40, 40);
             this.btnŻ.TabIndex = 34;
+            this.btnŻ.TabStop = false;
             this.btnŻ.Text = "Ż";
             this.btnŻ.UseVisualStyleBackColor = true;
             this.btnŻ.Click += new System.EventHandler(this.btnWithLetter_Click);
@@ -210,6 +219,7 @@ namespace FortuneWheel
             this.btnW.Name = "btnW";
             this.btnW.Size = new System.Drawing.Size(40, 40);
             this.btnW.TabIndex = 33;
+            this.btnW.TabStop = false;
             this.btnW.Text = "W";
             this.btnW.UseVisualStyleBackColor = true;
             this.btnW.Click += new System.EventHandler(this.btnWithLetter_Click);
@@ -221,6 +231,7 @@ namespace FortuneWheel
             this.btnX.Name = "btnX";
             this.btnX.Size = new System.Drawing.Size(40, 40);
             this.btnX.TabIndex = 32;
+            this.btnX.TabStop = false;
             this.btnX.Text = "X";
             this.btnX.UseVisualStyleBackColor = true;
             this.btnX.Click += new System.EventHandler(this.btnWithLetter_Click);
@@ -232,6 +243,7 @@ namespace FortuneWheel
             this.btnV.Name = "btnV";
             this.btnV.Size = new System.Drawing.Size(40, 40);
             this.btnV.TabIndex = 31;
+            this.btnV.TabStop = false;
             this.btnV.Text = "V";
             this.btnV.UseVisualStyleBackColor = true;
             this.btnV.Click += new System.EventHandler(this.btnWithLetter_Click);
@@ -243,6 +255,7 @@ namespace FortuneWheel
             this.btnŚ.Name = "btnŚ";
             this.btnŚ.Size = new System.Drawing.Size(40, 40);
             this.btnŚ.TabIndex = 30;
+            this.btnŚ.TabStop = false;
             this.btnŚ.Text = "Ś";
             this.btnŚ.UseVisualStyleBackColor = true;
             this.btnŚ.Click += new System.EventHandler(this.btnWithLetter_Click);
@@ -254,6 +267,7 @@ namespace FortuneWheel
             this.btnU.Name = "btnU";
             this.btnU.Size = new System.Drawing.Size(40, 40);
             this.btnU.TabIndex = 29;
+            this.btnU.TabStop = false;
             this.btnU.Text = "U";
             this.btnU.UseVisualStyleBackColor = true;
             this.btnU.Click += new System.EventHandler(this.btnWithLetter_Click);
@@ -265,6 +279,7 @@ namespace FortuneWheel
             this.btnS.Name = "btnS";
             this.btnS.Size = new System.Drawing.Size(40, 40);
             this.btnS.TabIndex = 28;
+            this.btnS.TabStop = false;
             this.btnS.Text = "S";
             this.btnS.UseVisualStyleBackColor = true;
             this.btnS.Click += new System.EventHandler(this.btnWithLetter_Click);
@@ -276,6 +291,7 @@ namespace FortuneWheel
             this.btnT.Name = "btnT";
             this.btnT.Size = new System.Drawing.Size(40, 40);
             this.btnT.TabIndex = 27;
+            this.btnT.TabStop = false;
             this.btnT.Text = "T";
             this.btnT.UseVisualStyleBackColor = true;
             this.btnT.Click += new System.EventHandler(this.btnWithLetter_Click);
@@ -287,6 +303,7 @@ namespace FortuneWheel
             this.btnQ.Name = "btnQ";
             this.btnQ.Size = new System.Drawing.Size(40, 40);
             this.btnQ.TabIndex = 26;
+            this.btnQ.TabStop = false;
             this.btnQ.Text = "Q";
             this.btnQ.UseVisualStyleBackColor = true;
             this.btnQ.Click += new System.EventHandler(this.btnWithLetter_Click);
@@ -298,6 +315,7 @@ namespace FortuneWheel
             this.btnR.Name = "btnR";
             this.btnR.Size = new System.Drawing.Size(40, 40);
             this.btnR.TabIndex = 25;
+            this.btnR.TabStop = false;
             this.btnR.Text = "R";
             this.btnR.UseVisualStyleBackColor = true;
             this.btnR.Click += new System.EventHandler(this.btnWithLetter_Click);
@@ -309,6 +327,7 @@ namespace FortuneWheel
             this.btnP.Name = "btnP";
             this.btnP.Size = new System.Drawing.Size(40, 40);
             this.btnP.TabIndex = 24;
+            this.btnP.TabStop = false;
             this.btnP.Text = "P";
             this.btnP.UseVisualStyleBackColor = true;
             this.btnP.Click += new System.EventHandler(this.btnWithLetter_Click);
@@ -320,6 +339,7 @@ namespace FortuneWheel
             this.btnŃ.Name = "btnŃ";
             this.btnŃ.Size = new System.Drawing.Size(40, 40);
             this.btnŃ.TabIndex = 23;
+            this.btnŃ.TabStop = false;
             this.btnŃ.Text = "Ń";
             this.btnŃ.UseVisualStyleBackColor = true;
             this.btnŃ.Click += new System.EventHandler(this.btnWithLetter_Click);
@@ -331,6 +351,7 @@ namespace FortuneWheel
             this.btnÓ.Name = "btnÓ";
             this.btnÓ.Size = new System.Drawing.Size(40, 40);
             this.btnÓ.TabIndex = 22;
+            this.btnÓ.TabStop = false;
             this.btnÓ.Text = "Ó";
             this.btnÓ.UseVisualStyleBackColor = true;
             this.btnÓ.Click += new System.EventHandler(this.btnWithLetter_Click);
@@ -342,6 +363,7 @@ namespace FortuneWheel
             this.btnN.Name = "btnN";
             this.btnN.Size = new System.Drawing.Size(40, 40);
             this.btnN.TabIndex = 21;
+            this.btnN.TabStop = false;
             this.btnN.Text = "N";
             this.btnN.UseVisualStyleBackColor = true;
             this.btnN.Click += new System.EventHandler(this.btnWithLetter_Click);
@@ -353,6 +375,7 @@ namespace FortuneWheel
             this.btnO.Name = "btnO";
             this.btnO.Size = new System.Drawing.Size(40, 40);
             this.btnO.TabIndex = 20;
+            this.btnO.TabStop = false;
             this.btnO.Text = "O";
             this.btnO.UseVisualStyleBackColor = true;
             this.btnO.Click += new System.EventHandler(this.btnWithLetter_Click);
@@ -364,6 +387,7 @@ namespace FortuneWheel
             this.btnŁ.Name = "btnŁ";
             this.btnŁ.Size = new System.Drawing.Size(40, 40);
             this.btnŁ.TabIndex = 19;
+            this.btnŁ.TabStop = false;
             this.btnŁ.Text = "Ł";
             this.btnŁ.UseVisualStyleBackColor = true;
             this.btnŁ.Click += new System.EventHandler(this.btnWithLetter_Click);
@@ -375,6 +399,7 @@ namespace FortuneWheel
             this.btnM.Name = "btnM";
             this.btnM.Size = new System.Drawing.Size(40, 40);
             this.btnM.TabIndex = 18;
+            this.btnM.TabStop = false;
             this.btnM.Text = "M";
             this.btnM.UseVisualStyleBackColor = true;
             this.btnM.Click += new System.EventHandler(this.btnWithLetter_Click);
@@ -386,6 +411,7 @@ namespace FortuneWheel
             this.btnL.Name = "btnL";
             this.btnL.Size = new System.Drawing.Size(40, 40);
             this.btnL.TabIndex = 17;
+            this.btnL.TabStop = false;
             this.btnL.Text = "L";
             this.btnL.UseVisualStyleBackColor = true;
             this.btnL.Click += new System.EventHandler(this.btnWithLetter_Click);
@@ -397,6 +423,7 @@ namespace FortuneWheel
             this.btnI.Name = "btnI";
             this.btnI.Size = new System.Drawing.Size(40, 40);
             this.btnI.TabIndex = 16;
+            this.btnI.TabStop = false;
             this.btnI.Text = "I";
             this.btnI.UseVisualStyleBackColor = true;
             this.btnI.Click += new System.EventHandler(this.btnWithLetter_Click);
@@ -408,6 +435,7 @@ namespace FortuneWheel
             this.btnK.Name = "btnK";
             this.btnK.Size = new System.Drawing.Size(40, 40);
             this.btnK.TabIndex = 15;
+            this.btnK.TabStop = false;
             this.btnK.Text = "K";
             this.btnK.UseVisualStyleBackColor = true;
             this.btnK.Click += new System.EventHandler(this.btnWithLetter_Click);
@@ -419,6 +447,7 @@ namespace FortuneWheel
             this.btnH.Name = "btnH";
             this.btnH.Size = new System.Drawing.Size(40, 40);
             this.btnH.TabIndex = 14;
+            this.btnH.TabStop = false;
             this.btnH.Text = "H";
             this.btnH.UseVisualStyleBackColor = true;
             this.btnH.Click += new System.EventHandler(this.btnWithLetter_Click);
@@ -430,6 +459,7 @@ namespace FortuneWheel
             this.btnJ.Name = "btnJ";
             this.btnJ.Size = new System.Drawing.Size(40, 40);
             this.btnJ.TabIndex = 13;
+            this.btnJ.TabStop = false;
             this.btnJ.Text = "J";
             this.btnJ.UseVisualStyleBackColor = true;
             this.btnJ.Click += new System.EventHandler(this.btnWithLetter_Click);
@@ -441,6 +471,7 @@ namespace FortuneWheel
             this.btnF.Name = "btnF";
             this.btnF.Size = new System.Drawing.Size(40, 40);
             this.btnF.TabIndex = 12;
+            this.btnF.TabStop = false;
             this.btnF.Text = "F";
             this.btnF.UseVisualStyleBackColor = true;
             this.btnF.Click += new System.EventHandler(this.btnWithLetter_Click);
@@ -452,6 +483,7 @@ namespace FortuneWheel
             this.btnG.Name = "btnG";
             this.btnG.Size = new System.Drawing.Size(40, 40);
             this.btnG.TabIndex = 11;
+            this.btnG.TabStop = false;
             this.btnG.Text = "G";
             this.btnG.UseVisualStyleBackColor = true;
             this.btnG.Click += new System.EventHandler(this.btnWithLetter_Click);
@@ -463,6 +495,7 @@ namespace FortuneWheel
             this.btnĘ.Name = "btnĘ";
             this.btnĘ.Size = new System.Drawing.Size(40, 40);
             this.btnĘ.TabIndex = 10;
+            this.btnĘ.TabStop = false;
             this.btnĘ.Text = "Ę";
             this.btnĘ.UseVisualStyleBackColor = true;
             this.btnĘ.Click += new System.EventHandler(this.btnWithLetter_Click);
@@ -474,6 +507,7 @@ namespace FortuneWheel
             this.btnĆ.Name = "btnĆ";
             this.btnĆ.Size = new System.Drawing.Size(40, 40);
             this.btnĆ.TabIndex = 7;
+            this.btnĆ.TabStop = false;
             this.btnĆ.Text = "Ć";
             this.btnĆ.UseVisualStyleBackColor = true;
             this.btnĆ.Click += new System.EventHandler(this.btnWithLetter_Click);
@@ -485,6 +519,7 @@ namespace FortuneWheel
             this.btnE.Name = "btnE";
             this.btnE.Size = new System.Drawing.Size(40, 40);
             this.btnE.TabIndex = 6;
+            this.btnE.TabStop = false;
             this.btnE.Text = "E";
             this.btnE.UseVisualStyleBackColor = true;
             this.btnE.Click += new System.EventHandler(this.btnWithLetter_Click);
@@ -496,6 +531,7 @@ namespace FortuneWheel
             this.btnC.Name = "btnC";
             this.btnC.Size = new System.Drawing.Size(40, 40);
             this.btnC.TabIndex = 4;
+            this.btnC.TabStop = false;
             this.btnC.Text = "C";
             this.btnC.UseVisualStyleBackColor = true;
             this.btnC.Click += new System.EventHandler(this.btnWithLetter_Click);
@@ -507,6 +543,7 @@ namespace FortuneWheel
             this.btnD.Name = "btnD";
             this.btnD.Size = new System.Drawing.Size(40, 40);
             this.btnD.TabIndex = 3;
+            this.btnD.TabStop = false;
             this.btnD.Text = "D";
             this.btnD.UseVisualStyleBackColor = true;
             this.btnD.Click += new System.EventHandler(this.btnWithLetter_Click);
@@ -518,6 +555,7 @@ namespace FortuneWheel
             this.btnĄ.Name = "btnĄ";
             this.btnĄ.Size = new System.Drawing.Size(40, 40);
             this.btnĄ.TabIndex = 2;
+            this.btnĄ.TabStop = false;
             this.btnĄ.Text = "Ą";
             this.btnĄ.UseVisualStyleBackColor = true;
             this.btnĄ.Click += new System.EventHandler(this.btnWithLetter_Click);
@@ -529,6 +567,7 @@ namespace FortuneWheel
             this.btnB.Name = "btnB";
             this.btnB.Size = new System.Drawing.Size(40, 40);
             this.btnB.TabIndex = 1;
+            this.btnB.TabStop = false;
             this.btnB.Text = "B";
             this.btnB.UseVisualStyleBackColor = true;
             this.btnB.Click += new System.EventHandler(this.btnWithLetter_Click);
@@ -540,24 +579,71 @@ namespace FortuneWheel
             this.btnA.Name = "btnA";
             this.btnA.Size = new System.Drawing.Size(40, 40);
             this.btnA.TabIndex = 0;
+            this.btnA.TabStop = false;
             this.btnA.Text = "A";
             this.btnA.UseVisualStyleBackColor = true;
             this.btnA.Click += new System.EventHandler(this.btnWithLetter_Click);
             // 
             // btnGiveUp
             // 
-            this.btnGiveUp.Location = new System.Drawing.Point(411, 337);
+            this.btnGiveUp.Location = new System.Drawing.Point(376, 328);
             this.btnGiveUp.Name = "btnGiveUp";
-            this.btnGiveUp.Size = new System.Drawing.Size(75, 23);
+            this.btnGiveUp.Size = new System.Drawing.Size(118, 40);
             this.btnGiveUp.TabIndex = 13;
-            this.btnGiveUp.Text = "Poddaj się";
+            this.btnGiveUp.TabStop = false;
+            this.btnGiveUp.Text = "Poddaje się :(";
             this.btnGiveUp.UseVisualStyleBackColor = true;
+            this.btnGiveUp.Click += new System.EventHandler(this.btnGiveUp_Click);
+            // 
+            // tmrCounter
+            // 
+            this.tmrCounter.Enabled = true;
+            this.tmrCounter.Interval = 1000;
+            this.tmrCounter.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // lbTimeView
+            // 
+            this.lbTimeView.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.lbTimeView.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.lbTimeView.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lbTimeView.Font = new System.Drawing.Font("OCR-A BT", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTimeView.Location = new System.Drawing.Point(429, 18);
+            this.lbTimeView.Name = "lbTimeView";
+            this.lbTimeView.Size = new System.Drawing.Size(89, 28);
+            this.lbTimeView.TabIndex = 14;
+            this.lbTimeView.Text = "0 s";
+            this.lbTimeView.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // lbMessages
+            // 
+            this.lbMessages.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lbMessages.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lbMessages.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lbMessages.Location = new System.Drawing.Point(376, 144);
+            this.lbMessages.Name = "lbMessages";
+            this.lbMessages.Size = new System.Drawing.Size(118, 132);
+            this.lbMessages.TabIndex = 15;
+            // 
+            // btnReplay
+            // 
+            this.btnReplay.Enabled = false;
+            this.btnReplay.Location = new System.Drawing.Point(376, 282);
+            this.btnReplay.Name = "btnReplay";
+            this.btnReplay.Size = new System.Drawing.Size(118, 40);
+            this.btnReplay.TabIndex = 16;
+            this.btnReplay.TabStop = false;
+            this.btnReplay.Text = "Zagraj jeszcze raz!";
+            this.btnReplay.UseVisualStyleBackColor = true;
+            this.btnReplay.Click += new System.EventHandler(this.btnReplay_Click);
             // 
             // Guess
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(530, 404);
+            this.ClientSize = new System.Drawing.Size(530, 388);
+            this.Controls.Add(this.btnReplay);
+            this.Controls.Add(this.lbMessages);
+            this.Controls.Add(this.lbTimeView);
             this.Controls.Add(this.btnGiveUp);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.lbCategory);
@@ -567,7 +653,7 @@ namespace FortuneWheel
             this.ForeColor = System.Drawing.SystemColors.ControlText;
             this.Name = "Guess";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form1";
+            this.Text = "Wisielec";
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -616,6 +702,10 @@ namespace FortuneWheel
         private System.Windows.Forms.Button btnB;
         private System.Windows.Forms.Button btnA;
         private System.Windows.Forms.Button btnGiveUp;
+        private System.Windows.Forms.Timer tmrCounter;
+        private System.Windows.Forms.Label lbTimeView;
+        private System.Windows.Forms.Label lbMessages;
+        private System.Windows.Forms.Button btnReplay;
     }
 }
 

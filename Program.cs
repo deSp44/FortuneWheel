@@ -16,7 +16,7 @@ namespace FortuneWheel
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new ChooseWord());
+            Application.Run(new MainMenu());
         }
     }
 }

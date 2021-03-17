@@ -21,16 +21,25 @@ namespace FortuneWheel
 
         private void btnAccept_Click(object sender, EventArgs e)
         {
-            _puzzle = new Puzzle
-            { 
-                Category = tbCategory.Text,
-                Sentence = tbSentence.Text
-            };
+            if (tbSentence.Text == "")
+                MessageBox.Show("Nie wpisano wyrazu do odgadnięcia.", "Brak wyrazu!",
+                MessageBoxButtons.OK, MessageBoxIcon.Error);
+            else if(cbCategory.Text == "")
+                MessageBox.Show("Nie wybrano kategorii!", "Brak kategorii!",
+                MessageBoxButtons.OK, MessageBoxIcon.Error);
+            else
+            {
+                _puzzle = new Puzzle
+                {
+                    Category = cbCategory.Text,
+                    Sentence = tbSentence.Text
+                };
 
-            this.Hide();
-            var guess = new Guess();
-            guess.ShowDialog();
-            this.Close();
+                this.Hide();
+                var guess = new Guess();
+                guess.ShowDialog();
+                this.Close();
+            }
         }
 
         private void btnExit_Click(object sender, EventArgs e)
@@ -40,7 +49,10 @@ namespace FortuneWheel
 
         private void btnChangeGameMode_Click(object sender, EventArgs e)
         {
-            //TODO : inne tryby
+            this.Hide();
+            var nextWindow = new MainMenu();
+            nextWindow.ShowDialog();
+            this.Close();
         }
     }
 }
