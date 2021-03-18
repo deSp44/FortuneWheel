@@ -1,7 +1,7 @@
 ﻿
 namespace FortuneWheel
 {
-    partial class ChooseWord
+    partial class HangmanCreate
     {
         /// <summary>
         /// Required designer variable.
@@ -34,16 +34,21 @@ namespace FortuneWheel
             this.tbSentence = new System.Windows.Forms.TextBox();
             this.btnAccept = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
-            this.btnChangeGameMode = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.cbCategory = new System.Windows.Forms.ComboBox();
+            this.nupAttempts = new System.Windows.Forms.NumericUpDown();
+            this.nupTime = new System.Windows.Forms.NumericUpDown();
+            this.cbTime = new System.Windows.Forms.CheckBox();
+            this.cbAttempts = new System.Windows.Forms.CheckBox();
+            ((System.ComponentModel.ISupportInitialize)(this.nupAttempts)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nupTime)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label1.Location = new System.Drawing.Point(12, 59);
+            this.label1.Location = new System.Drawing.Point(8, 57);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(148, 20);
             this.label1.TabIndex = 0;
@@ -53,7 +58,7 @@ namespace FortuneWheel
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label2.Location = new System.Drawing.Point(12, 84);
+            this.label2.Location = new System.Drawing.Point(8, 83);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(166, 20);
             this.label2.TabIndex = 2;
@@ -62,49 +67,40 @@ namespace FortuneWheel
             // tbSentence
             // 
             this.tbSentence.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.tbSentence.Location = new System.Drawing.Point(12, 107);
+            this.tbSentence.Location = new System.Drawing.Point(12, 106);
             this.tbSentence.Name = "tbSentence";
-            this.tbSentence.Size = new System.Drawing.Size(328, 23);
+            this.tbSentence.Size = new System.Drawing.Size(300, 23);
             this.tbSentence.TabIndex = 3;
             // 
             // btnAccept
             // 
-            this.btnAccept.Location = new System.Drawing.Point(12, 136);
+            this.btnAccept.Location = new System.Drawing.Point(12, 206);
             this.btnAccept.Name = "btnAccept";
             this.btnAccept.Size = new System.Drawing.Size(75, 23);
             this.btnAccept.TabIndex = 4;
+            this.btnAccept.TabStop = false;
             this.btnAccept.Text = "Akceptuj";
             this.btnAccept.UseVisualStyleBackColor = true;
             this.btnAccept.Click += new System.EventHandler(this.btnAccept_Click);
             // 
             // btnExit
             // 
-            this.btnExit.Location = new System.Drawing.Point(265, 136);
+            this.btnExit.Location = new System.Drawing.Point(237, 206);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(75, 23);
             this.btnExit.TabIndex = 5;
-            this.btnExit.Text = "Wyjdź";
+            this.btnExit.TabStop = false;
+            this.btnExit.Text = "Cofnij";
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
-            // 
-            // btnChangeGameMode
-            // 
-            this.btnChangeGameMode.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.btnChangeGameMode.Location = new System.Drawing.Point(140, 136);
-            this.btnChangeGameMode.Name = "btnChangeGameMode";
-            this.btnChangeGameMode.Size = new System.Drawing.Size(75, 23);
-            this.btnChangeGameMode.TabIndex = 6;
-            this.btnChangeGameMode.Text = "Zmień tryb";
-            this.btnChangeGameMode.UseVisualStyleBackColor = true;
-            this.btnChangeGameMode.Click += new System.EventHandler(this.btnChangeGameMode_Click);
             // 
             // label3
             // 
             this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label3.Location = new System.Drawing.Point(16, 9);
+            this.label3.Location = new System.Drawing.Point(12, 9);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(324, 32);
+            this.label3.Size = new System.Drawing.Size(296, 32);
             this.label3.TabIndex = 7;
             this.label3.Text = "TRYB WISIELCA";
             this.label3.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -141,30 +137,71 @@ namespace FortuneWheel
             "Tytuł",
             "Zawody",
             "Zwierzęta"});
-            this.cbCategory.Location = new System.Drawing.Point(169, 58);
+            this.cbCategory.Location = new System.Drawing.Point(162, 57);
             this.cbCategory.Name = "cbCategory";
-            this.cbCategory.Size = new System.Drawing.Size(171, 21);
+            this.cbCategory.Size = new System.Drawing.Size(150, 21);
             this.cbCategory.TabIndex = 8;
             // 
-            // ChooseWord
+            // nupAttempts
+            // 
+            this.nupAttempts.Enabled = false;
+            this.nupAttempts.Location = new System.Drawing.Point(162, 143);
+            this.nupAttempts.Name = "nupAttempts";
+            this.nupAttempts.Size = new System.Drawing.Size(34, 20);
+            this.nupAttempts.TabIndex = 10;
+            // 
+            // nupTime
+            // 
+            this.nupTime.Enabled = false;
+            this.nupTime.Location = new System.Drawing.Point(162, 167);
+            this.nupTime.Name = "nupTime";
+            this.nupTime.Size = new System.Drawing.Size(34, 20);
+            this.nupTime.TabIndex = 11;
+            // 
+            // cbTime
+            // 
+            this.cbTime.AutoSize = true;
+            this.cbTime.Location = new System.Drawing.Point(12, 170);
+            this.cbTime.Name = "cbTime";
+            this.cbTime.Size = new System.Drawing.Size(147, 17);
+            this.cbTime.TabIndex = 14;
+            this.cbTime.Text = "Ograniczenie czasowe (s)";
+            this.cbTime.UseVisualStyleBackColor = true;
+            this.cbTime.CheckedChanged += new System.EventHandler(this.cbTime_CheckedChanged);
+            // 
+            // cbAttempts
+            // 
+            this.cbAttempts.AutoSize = true;
+            this.cbAttempts.Location = new System.Drawing.Point(12, 147);
+            this.cbAttempts.Name = "cbAttempts";
+            this.cbAttempts.Size = new System.Drawing.Size(124, 17);
+            this.cbAttempts.TabIndex = 15;
+            this.cbAttempts.Text = "Maks. liczba błędów";
+            this.cbAttempts.UseVisualStyleBackColor = true;
+            this.cbAttempts.CheckedChanged += new System.EventHandler(this.cbAttempts_CheckedChanged);
+            // 
+            // HangmanCreate
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(352, 168);
+            this.ClientSize = new System.Drawing.Size(324, 241);
+            this.Controls.Add(this.cbAttempts);
+            this.Controls.Add(this.cbTime);
+            this.Controls.Add(this.nupTime);
+            this.Controls.Add(this.nupAttempts);
             this.Controls.Add(this.cbCategory);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.btnChangeGameMode);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnAccept);
             this.Controls.Add(this.tbSentence);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(368, 207);
-            this.MinimumSize = new System.Drawing.Size(368, 207);
-            this.Name = "ChooseWord";
+            this.Name = "HangmanCreate";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Uzupełnij dane";
+            ((System.ComponentModel.ISupportInitialize)(this.nupAttempts)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nupTime)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -177,8 +214,11 @@ namespace FortuneWheel
         private System.Windows.Forms.TextBox tbSentence;
         private System.Windows.Forms.Button btnAccept;
         private System.Windows.Forms.Button btnExit;
-        private System.Windows.Forms.Button btnChangeGameMode;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox cbCategory;
+        private System.Windows.Forms.NumericUpDown nupAttempts;
+        private System.Windows.Forms.NumericUpDown nupTime;
+        private System.Windows.Forms.CheckBox cbTime;
+        private System.Windows.Forms.CheckBox cbAttempts;
     }
 }

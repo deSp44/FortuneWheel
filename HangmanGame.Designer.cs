@@ -1,7 +1,7 @@
 ﻿
 namespace FortuneWheel
 {
-    partial class Guess
+    partial class HangmanGame
     {
         /// <summary>
         /// Wymagana zmienna projektanta.
@@ -606,7 +606,7 @@ namespace FortuneWheel
             this.lbTimeView.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.lbTimeView.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.lbTimeView.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lbTimeView.Font = new System.Drawing.Font("OCR-A BT", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTimeView.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbTimeView.Location = new System.Drawing.Point(429, 18);
             this.lbTimeView.Name = "lbTimeView";
             this.lbTimeView.Size = new System.Drawing.Size(89, 28);
@@ -636,7 +636,7 @@ namespace FortuneWheel
             this.btnReplay.UseVisualStyleBackColor = true;
             this.btnReplay.Click += new System.EventHandler(this.btnReplay_Click);
             // 
-            // Guess
+            // HangmanGame
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -651,7 +651,7 @@ namespace FortuneWheel
             this.Controls.Add(this.lbHiddenSentence);
             this.Controls.Add(this.lbSentence);
             this.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.Name = "Guess";
+            this.Name = "HangmanGame";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Wisielec";
             this.panel1.ResumeLayout(false);

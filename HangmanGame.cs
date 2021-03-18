@@ -11,15 +11,19 @@ using System.Text.RegularExpressions;
 
 namespace FortuneWheel
 {
-    public partial class Guess : Form
+    public partial class HangmanGame : Form
     {
-        Puzzle data = ChooseWord._puzzle; // Object passed
+        Puzzle data = HangmanCreate._puzzle; // Object passed
         private int failCounter = 0;
         int timeCount = 0;
+        bool gameLost = false;
 
-        public Guess()
+        public HangmanGame()
         {
             InitializeComponent();
+
+
+
 
             LoadData();
         }
@@ -29,6 +33,16 @@ namespace FortuneWheel
             var replace = new Regex("\\S").Replace(data.Sentence, "*");
             lbHiddenSentence.Text = replace;
             lbCategory.Text = $"Kategoria: {data.Category}";
+
+            if (data.PossibleAttempts != null)
+                lbAttemptsCounter.Text = $"Pozostałe próby: {data.PossibleAttempts}";
+            else
+                lbAttemptsCounter.Text = $"Błędne strzały: {failCounter}";
+
+            if (data.TimeRemains != null)
+                lbTimeView.Text = data.TimeRemains.ToString() + " s";
+            else
+                lbTimeView.Text = timeCount.ToString() + " s";
         }
 
         private void btnWithLetter_Click(object sender, EventArgs e)
@@ -52,7 +66,17 @@ namespace FortuneWheel
                 }
                 if (!hit)
                 {
-                    failCounter++;
+                    if (data.PossibleAttempts != null)
+                    {
+                        data.PossibleAttempts--;
+                        lbAttemptsCounter.Text = $"Pozostałe próby: {data.PossibleAttempts}";
+                    }
+                    else
+                    {
+                        failCounter++;
+                        lbAttemptsCounter.Text = $"Błędne strzały: {failCounter}";
+                    }
+                        
                     buttonThatClicked.Enabled = false;
                     buttonThatClicked.BackColor = Color.LightCoral;
                     buttonThatClicked.ForeColor = Color.Red;
@@ -63,22 +87,49 @@ namespace FortuneWheel
                     buttonThatClicked.BackColor = Color.LightGreen;
                     buttonThatClicked.ForeColor = Color.Green;
                 }
-                lbAttemptsCounter.Text = $"Błędne strzały: {failCounter}";
+                
+                if (failCounter == data.PossibleAttempts)
+                {
+                    gameLost = true;
+                }
+                if (timeCount == data.TimeRemains)
+                {
+                    gameLost = true;
+                }
 
                 if (lbHiddenSentence.Text == sentence)
                 {
-                    lbMessages.Text = ($"Dobre hasło!!! Błędne strzały: {failCounter} :)");
+                    lbMessages.Text = ($"Dobre hasło!!!\r\n\r\nTyle sekund zajęło rozwiązanie: {timeCount}s\r\n\r\nBłędy: {failCounter}");
+                    tmrCounter.Stop();
                     btnReplay.Enabled = true;
                     panel1.Enabled = false;
                     btnGiveUp.Text = "Wyjdź do menu";
+                }
+                else if (gameLost)
+                {
+                    lbMessages.Text = ($"Przegrana!!!");
+                    tmrCounter.Stop();
+                    btnReplay.Enabled = true;
+                    panel1.Enabled = false;
+                    btnGiveUp.Text = "Wyjdź do menu";
+
+                    lbHiddenSentence.Text = data.Sentence.ToUpper();
                 }
             }
         }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            timeCount++;
-            lbTimeView.Text = timeCount.ToString() + " s";
+            if (data.TimeRemains != null)
+            {
+                data.TimeRemains--;
+                lbTimeView.Text = data.TimeRemains.ToString() + " s";
+            }
+            else
+            {
+                timeCount++;
+                lbTimeView.Text = timeCount.ToString() + " s";
+            }
         }
 
         private void btnGiveUp_Click(object sender, EventArgs e)
@@ -100,7 +151,7 @@ namespace FortuneWheel
         private void btnReplay_Click(object sender, EventArgs e)
         {
             this.Hide();
-            var nextWindow = new ChooseWord();
+            var nextWindow = new HangmanCreate();
             nextWindow.ShowDialog();
             this.Close();
         }
