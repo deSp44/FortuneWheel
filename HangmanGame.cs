@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Text.RegularExpressions;
 
@@ -13,122 +7,118 @@ namespace FortuneWheel
 {
     public partial class HangmanGame : Form
     {
-        Puzzle data = HangmanCreate._puzzle; // Object passed
-        private int failCounter = 0;
+        Puzzle _data = HangmanCreate._puzzle; // Object passed
+
+        int failCounter = 0;
         int timeCount = 0;
-        bool gameLost = false;
 
         public HangmanGame()
         {
             InitializeComponent();
-
             LoadData();
         }
 
         public void LoadData()
         {
-            var replace = new Regex("\\S").Replace(data.Sentence, "*");
+            // Replace sentence with asterisk
+            var replace = new Regex("\\S").Replace(_data.Sentence, "*");
             lbHiddenSentence.Text = replace;
-            lbCategory.Text = $"Kategoria: {data.Category}";
 
-            if (data.PossibleAttempts != null)
-                lbAttemptsCounter.Text = $"Pozostałe próby: {data.PossibleAttempts}";
+            // Load other labels
+            lbCategory.Text = $"Kategoria: {_data.Category}";
+
+            if (_data.PossibleAttempts != null)
+                lbAttemptsCounter.Text = $"Pozostałe próby: {_data.PossibleAttempts}";
             else
                 lbAttemptsCounter.Text = $"Błędne strzały: {failCounter}";
 
-            if (data.TimeRemains != null)
-                lbTimeView.Text = data.TimeRemains.ToString() + " s";
+            if (_data.TimeRemains != null)
+                lbTimeView.Text = _data.TimeRemains.ToString() + " s";
             else
                 lbTimeView.Text = timeCount.ToString() + " s";
         }
 
         private void btnWithLetter_Click(object sender, EventArgs e)
         {
-            var sentence = data.Sentence.ToUpper();
+            var sentence = _data.Sentence.ToUpper(); // Borrow sentence from object and make capital
 
-            if (sender is Button buttonThatClicked)
+            if (sender is Button buttonThatClicked) // Identify the button
             {
-                var letter = buttonThatClicked.Text.ToUpper();
+                var letter = buttonThatClicked.Text.ToUpper(); // Make capital
 
-                var hit = false;
-                var letterPosition = 0;
-                foreach (char c in sentence)
+                var hit = false; // Starting hit status = false
+                var letterPosition = 0; // Starting letter position
+                foreach (char c in sentence) // Checking all letters in sentence (c - checked letter)
                 {
                     if (c.ToString() == letter)
                     {
-                        lbHiddenSentence.Text = lbHiddenSentence.Text.Remove(letterPosition, 1).Insert(letterPosition, c.ToString());
+                        lbHiddenSentence.Text = lbHiddenSentence.Text.Remove(letterPosition, 1).Insert(letterPosition, c.ToString()); // Replace
                         hit = true;
                     }
                     letterPosition++;
                 }
-                if (!hit)
+
+                if (!hit) // Letter hit negative (-)
                 {
-                    if (data.PossibleAttempts != null)
-                    {
-                        data.PossibleAttempts--;
-                        lbAttemptsCounter.Text = $"Pozostałe próby: {data.PossibleAttempts}";
-                    }
+                    if (_data.PossibleAttempts != null)
+                        lbAttemptsCounter.Text = $"Pozostałe próby: {--_data.PossibleAttempts}";
                     else
-                    {
-                        failCounter++;
-                        lbAttemptsCounter.Text = $"Błędne strzały: {failCounter}";
-                    }
-                        
+                        lbAttemptsCounter.Text = $"Błędne strzały: {++failCounter}";
+                    
+                    // the button becomes used
                     buttonThatClicked.Enabled = false;
                     buttonThatClicked.BackColor = Color.LightCoral;
                     buttonThatClicked.ForeColor = Color.Red;
                 }
-                else
+                else // Letter hit positive (+)
                 {
+                    // the button becomes used
                     buttonThatClicked.Enabled = false;
                     buttonThatClicked.BackColor = Color.LightGreen;
                     buttonThatClicked.ForeColor = Color.Green;
                 }
                 
-                if (failCounter == data.PossibleAttempts)
-                {
-                    gameLost = true;
-                }
-                if (timeCount == data.TimeRemains)
-                {
-                    gameLost = true;
-                }
-
+                // Game result
                 if (lbHiddenSentence.Text == sentence)
-                {
-                    if (data.PossibleAttempts != null && data.TimeRemains != null)
-                        lbMessages.Text = ($"Dobre hasło!!!\r\n\r\nTyle sekund pozostało: {data.TimeRemains}s\r\n\r\nSzanse: {data.PossibleAttempts}");
-                    else if(data.PossibleAttempts != null)
-                        lbMessages.Text = ($"Dobre hasło!!!\r\n\r\nTyle sekund zajęło rozwiązanie: {timeCount}s\r\n\r\nSzanse: {data.PossibleAttempts}");
-                    else if(data.TimeRemains != null)  
-                        lbMessages.Text = ($"Dobre hasło!!!\r\n\r\nTyle sekund pozostało: {data.TimeRemains}s\r\n\r\nBłędy: {failCounter}");
-                    else      
-                        lbMessages.Text = ($"Dobre hasło!!!\r\n\r\nTyle sekund zajęło rozwiązanie: {timeCount}s\r\n\r\nBłędy: {failCounter}");
-
-                    tmrCounter.Stop();
-                    btnReplay.Enabled = true;
-                    panel1.Enabled = false;
-                    btnGiveUp.Text = "Wyjdź do menu";
-                }
-                else if (gameLost)
-                {
-                    lbMessages.Text = ($"Przegrana!!!");
-                    tmrCounter.Stop();
-                    btnReplay.Enabled = true;
-                    panel1.Enabled = false;
-                    btnGiveUp.Text = "Wyjdź do menu";
-
-                    lbHiddenSentence.Text = data.Sentence.ToUpper();
-                }
+                    GameWonMessage();
+                else if (failCounter == _data.PossibleAttempts || timeCount == _data.TimeRemains)
+                    GameLostMessage();
             }
         }
 
-        private void timer1_Tick(object sender, EventArgs e)
+        private void GameLostMessage()
         {
-            if (data.TimeRemains != null)
+            lbMessages.Text = ("Przegrana!!!");
+            panKeyboard.Enabled = false;
+            btnReplay.Enabled = true;
+            tmrCounter.Stop();
+            btnGiveUp.Text = "Wyjdź do menu";
+            lbHiddenSentence.Text = _data.Sentence.ToUpper();
+        }
+
+        private void GameWonMessage()
+        {
+            if (_data.PossibleAttempts != null && _data.TimeRemains != null)
+                lbMessages.Text = ($"Dobre hasło!!!\r\n\r\nTyle sekund pozostało: {_data.TimeRemains}s\r\n\r\nSzanse: {_data.PossibleAttempts}");
+            else if (_data.PossibleAttempts != null)
+                lbMessages.Text = ($"Dobre hasło!!!\r\n\r\nTyle sekund zajęło rozwiązanie: {timeCount}s\r\n\r\nSzanse: {_data.PossibleAttempts}");
+            else if (_data.TimeRemains != null)
+                lbMessages.Text = ($"Dobre hasło!!!\r\n\r\nTyle sekund pozostało: {_data.TimeRemains}s\r\n\r\nBłędy: {failCounter}");
+            else
+                lbMessages.Text = ($"Dobre hasło!!!\r\n\r\nTyle sekund zajęło rozwiązanie: {timeCount}s\r\n\r\nBłędy: {failCounter}");
+
+            tmrCounter.Stop();
+            btnReplay.Enabled = true;
+            panKeyboard.Enabled = false;
+            btnGiveUp.Text = "Wyjdź do menu";
+        }
+
+        private void tmrCounter_Tick(object sender, EventArgs e)
+        {
+            if (_data.TimeRemains != null)
             {
-                data.TimeRemains--;
-                lbTimeView.Text = data.TimeRemains.ToString() + " s";
+                _data.TimeRemains--;
+                lbTimeView.Text = _data.TimeRemains.ToString() + " s";
             }
             else
             {
@@ -146,11 +136,13 @@ namespace FortuneWheel
                 nextWindow.ShowDialog();
                 this.Close();
             }
-
-            lbHiddenSentence.Text = data.Sentence.ToUpper();
-            btnGiveUp.Text = "Wyjdź do menu";
-            panel1.Enabled = false;
-            btnReplay.Enabled = true;
+            else
+            {
+                lbHiddenSentence.Text = _data.Sentence.ToUpper();
+                btnGiveUp.Text = "Wyjdź do menu";
+                panKeyboard.Enabled = false;
+                btnReplay.Enabled = true;
+            }   
         }
 
         private void btnReplay_Click(object sender, EventArgs e)

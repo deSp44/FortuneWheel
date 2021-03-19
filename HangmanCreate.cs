@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace FortuneWheel
@@ -17,8 +10,6 @@ namespace FortuneWheel
         public HangmanCreate()
         {
             InitializeComponent();
-            
-
         }
 
         private void btnAccept_Click(object sender, EventArgs e)
@@ -32,22 +23,25 @@ namespace FortuneWheel
                 MessageBoxButtons.OK, MessageBoxIcon.Error);
             else
             {
-                _puzzle = new Puzzle
-                {
-                    Category = cbCategory.Text,
-                    Sentence = tbSentence.Text,
-                };
-
-                if (nupAttempts.Enabled)
-                    _puzzle.PossibleAttempts = Convert.ToInt32(nupAttempts.Value);
-                if (nupTime.Enabled)
-                    _puzzle.TimeRemains = Convert.ToInt32(nupTime.Value);
+                CreatePuzzle();
 
                 this.Hide();
-                var guess = new HangmanGame();
-                guess.ShowDialog();
+                var nextWindow = new HangmanGame();
+                nextWindow.ShowDialog();
                 this.Close();
             }
+        }
+        private void CreatePuzzle()
+        {
+            _puzzle = new Puzzle
+            {
+                Category = cbCategory.Text,
+                Sentence = tbSentence.Text
+            };
+            if (nupAttempts.Enabled)
+                _puzzle.PossibleAttempts = Convert.ToInt32(nupAttempts.Value);
+            if (nupTime.Enabled)
+                _puzzle.TimeRemains = Convert.ToInt32(nupTime.Value);
         }
 
         private void btnExit_Click(object sender, EventArgs e)

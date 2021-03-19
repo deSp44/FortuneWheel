@@ -1,14 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace FortuneWheel
+﻿namespace FortuneWheel
 {
-    //TODO : Dodanie hiperłącza do linku w informacjach
-    //TODO : Refaktoryzacja kodu i podział na metody
-    //TODO : ??? Baza haseł z losowym ich wybieraniem
+    //TODO : Add hiperlink in credits
+    //TODO : ??? Database with random selection of sentences
 
     public class Puzzle
     {

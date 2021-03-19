@@ -100,7 +100,7 @@ namespace FortuneWheel
             this.label3.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label3.Location = new System.Drawing.Point(12, 9);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(296, 32);
+            this.label3.Size = new System.Drawing.Size(300, 32);
             this.label3.TabIndex = 7;
             this.label3.Text = "TRYB WISIELCA";
             this.label3.TextAlign = System.Drawing.ContentAlignment.TopCenter;

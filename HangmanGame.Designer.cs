@@ -34,7 +34,7 @@ namespace FortuneWheel
             this.lbHiddenSentence = new System.Windows.Forms.Label();
             this.lbAttemptsCounter = new System.Windows.Forms.Label();
             this.lbCategory = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.panKeyboard = new System.Windows.Forms.Panel();
             this.btnZ = new System.Windows.Forms.Button();
             this.btnŹ = new System.Windows.Forms.Button();
             this.btnY = new System.Windows.Forms.Button();
@@ -75,7 +75,7 @@ namespace FortuneWheel
             this.lbTimeView = new System.Windows.Forms.Label();
             this.lbMessages = new System.Windows.Forms.Label();
             this.btnReplay = new System.Windows.Forms.Button();
-            this.panel1.SuspendLayout();
+            this.panKeyboard.SuspendLayout();
             this.SuspendLayout();
             // 
             // lbSentence
@@ -103,13 +103,15 @@ namespace FortuneWheel
             // 
             // lbAttemptsCounter
             // 
-            this.lbAttemptsCounter.AutoSize = true;
+            this.lbAttemptsCounter.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.lbAttemptsCounter.Cursor = System.Windows.Forms.Cursors.Default;
             this.lbAttemptsCounter.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lbAttemptsCounter.Location = new System.Drawing.Point(372, 48);
+            this.lbAttemptsCounter.Location = new System.Drawing.Point(333, 46);
             this.lbAttemptsCounter.Name = "lbAttemptsCounter";
-            this.lbAttemptsCounter.Size = new System.Drawing.Size(146, 19);
+            this.lbAttemptsCounter.Size = new System.Drawing.Size(185, 32);
             this.lbAttemptsCounter.TabIndex = 9;
             this.lbAttemptsCounter.Text = "Błędne strzały: 0";
+            this.lbAttemptsCounter.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lbCategory
             // 
@@ -121,51 +123,52 @@ namespace FortuneWheel
             this.lbCategory.TabIndex = 10;
             this.lbCategory.Text = "Kategoria: ";
             // 
-            // panel1
+            // panKeyboard
             // 
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.btnZ);
-            this.panel1.Controls.Add(this.btnŹ);
-            this.panel1.Controls.Add(this.btnY);
-            this.panel1.Controls.Add(this.btnŻ);
-            this.panel1.Controls.Add(this.btnW);
-            this.panel1.Controls.Add(this.btnX);
-            this.panel1.Controls.Add(this.btnV);
-            this.panel1.Controls.Add(this.btnŚ);
-            this.panel1.Controls.Add(this.btnU);
-            this.panel1.Controls.Add(this.btnS);
-            this.panel1.Controls.Add(this.btnT);
-            this.panel1.Controls.Add(this.btnQ);
-            this.panel1.Controls.Add(this.btnR);
-            this.panel1.Controls.Add(this.btnP);
-            this.panel1.Controls.Add(this.btnŃ);
-            this.panel1.Controls.Add(this.btnÓ);
-            this.panel1.Controls.Add(this.btnN);
-            this.panel1.Controls.Add(this.btnO);
-            this.panel1.Controls.Add(this.btnŁ);
-            this.panel1.Controls.Add(this.btnM);
-            this.panel1.Controls.Add(this.btnL);
-            this.panel1.Controls.Add(this.btnI);
-            this.panel1.Controls.Add(this.btnK);
-            this.panel1.Controls.Add(this.btnH);
-            this.panel1.Controls.Add(this.btnJ);
-            this.panel1.Controls.Add(this.btnF);
-            this.panel1.Controls.Add(this.btnG);
-            this.panel1.Controls.Add(this.btnĘ);
-            this.panel1.Controls.Add(this.btnĆ);
-            this.panel1.Controls.Add(this.btnE);
-            this.panel1.Controls.Add(this.btnC);
-            this.panel1.Controls.Add(this.btnD);
-            this.panel1.Controls.Add(this.btnĄ);
-            this.panel1.Controls.Add(this.btnB);
-            this.panel1.Controls.Add(this.btnA);
-            this.panel1.Location = new System.Drawing.Point(16, 139);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(324, 235);
-            this.panel1.TabIndex = 12;
+            this.panKeyboard.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panKeyboard.Controls.Add(this.btnZ);
+            this.panKeyboard.Controls.Add(this.btnŹ);
+            this.panKeyboard.Controls.Add(this.btnY);
+            this.panKeyboard.Controls.Add(this.btnŻ);
+            this.panKeyboard.Controls.Add(this.btnW);
+            this.panKeyboard.Controls.Add(this.btnX);
+            this.panKeyboard.Controls.Add(this.btnV);
+            this.panKeyboard.Controls.Add(this.btnŚ);
+            this.panKeyboard.Controls.Add(this.btnU);
+            this.panKeyboard.Controls.Add(this.btnS);
+            this.panKeyboard.Controls.Add(this.btnT);
+            this.panKeyboard.Controls.Add(this.btnQ);
+            this.panKeyboard.Controls.Add(this.btnR);
+            this.panKeyboard.Controls.Add(this.btnP);
+            this.panKeyboard.Controls.Add(this.btnŃ);
+            this.panKeyboard.Controls.Add(this.btnÓ);
+            this.panKeyboard.Controls.Add(this.btnN);
+            this.panKeyboard.Controls.Add(this.btnO);
+            this.panKeyboard.Controls.Add(this.btnŁ);
+            this.panKeyboard.Controls.Add(this.btnM);
+            this.panKeyboard.Controls.Add(this.btnL);
+            this.panKeyboard.Controls.Add(this.btnI);
+            this.panKeyboard.Controls.Add(this.btnK);
+            this.panKeyboard.Controls.Add(this.btnH);
+            this.panKeyboard.Controls.Add(this.btnJ);
+            this.panKeyboard.Controls.Add(this.btnF);
+            this.panKeyboard.Controls.Add(this.btnG);
+            this.panKeyboard.Controls.Add(this.btnĘ);
+            this.panKeyboard.Controls.Add(this.btnĆ);
+            this.panKeyboard.Controls.Add(this.btnE);
+            this.panKeyboard.Controls.Add(this.btnC);
+            this.panKeyboard.Controls.Add(this.btnD);
+            this.panKeyboard.Controls.Add(this.btnĄ);
+            this.panKeyboard.Controls.Add(this.btnB);
+            this.panKeyboard.Controls.Add(this.btnA);
+            this.panKeyboard.Location = new System.Drawing.Point(16, 139);
+            this.panKeyboard.Name = "panKeyboard";
+            this.panKeyboard.Size = new System.Drawing.Size(324, 235);
+            this.panKeyboard.TabIndex = 12;
             // 
             // btnZ
             // 
+            this.btnZ.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnZ.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnZ.Location = new System.Drawing.Point(187, 188);
             this.btnZ.Name = "btnZ";
@@ -178,6 +181,7 @@ namespace FortuneWheel
             // 
             // btnŹ
             // 
+            this.btnŹ.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnŹ.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnŹ.Location = new System.Drawing.Point(279, 188);
             this.btnŹ.Name = "btnŹ";
@@ -190,6 +194,7 @@ namespace FortuneWheel
             // 
             // btnY
             // 
+            this.btnY.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnY.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnY.Location = new System.Drawing.Point(141, 188);
             this.btnY.Name = "btnY";
@@ -202,6 +207,7 @@ namespace FortuneWheel
             // 
             // btnŻ
             // 
+            this.btnŻ.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnŻ.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnŻ.Location = new System.Drawing.Point(233, 188);
             this.btnŻ.Name = "btnŻ";
@@ -214,6 +220,7 @@ namespace FortuneWheel
             // 
             // btnW
             // 
+            this.btnW.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnW.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnW.Location = new System.Drawing.Point(49, 188);
             this.btnW.Name = "btnW";
@@ -226,6 +233,7 @@ namespace FortuneWheel
             // 
             // btnX
             // 
+            this.btnX.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnX.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnX.Location = new System.Drawing.Point(95, 188);
             this.btnX.Name = "btnX";
@@ -238,6 +246,7 @@ namespace FortuneWheel
             // 
             // btnV
             // 
+            this.btnV.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnV.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnV.Location = new System.Drawing.Point(3, 188);
             this.btnV.Name = "btnV";
@@ -250,6 +259,7 @@ namespace FortuneWheel
             // 
             // btnŚ
             // 
+            this.btnŚ.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnŚ.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnŚ.Location = new System.Drawing.Point(187, 142);
             this.btnŚ.Name = "btnŚ";
@@ -262,6 +272,7 @@ namespace FortuneWheel
             // 
             // btnU
             // 
+            this.btnU.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnU.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnU.Location = new System.Drawing.Point(279, 142);
             this.btnU.Name = "btnU";
@@ -274,6 +285,7 @@ namespace FortuneWheel
             // 
             // btnS
             // 
+            this.btnS.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnS.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnS.Location = new System.Drawing.Point(141, 142);
             this.btnS.Name = "btnS";
@@ -286,6 +298,7 @@ namespace FortuneWheel
             // 
             // btnT
             // 
+            this.btnT.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnT.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnT.Location = new System.Drawing.Point(233, 142);
             this.btnT.Name = "btnT";
@@ -298,6 +311,7 @@ namespace FortuneWheel
             // 
             // btnQ
             // 
+            this.btnQ.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnQ.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnQ.Location = new System.Drawing.Point(49, 142);
             this.btnQ.Name = "btnQ";
@@ -310,6 +324,7 @@ namespace FortuneWheel
             // 
             // btnR
             // 
+            this.btnR.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnR.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnR.Location = new System.Drawing.Point(95, 142);
             this.btnR.Name = "btnR";
@@ -322,6 +337,7 @@ namespace FortuneWheel
             // 
             // btnP
             // 
+            this.btnP.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnP.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnP.Location = new System.Drawing.Point(3, 142);
             this.btnP.Name = "btnP";
@@ -334,6 +350,7 @@ namespace FortuneWheel
             // 
             // btnŃ
             // 
+            this.btnŃ.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnŃ.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnŃ.Location = new System.Drawing.Point(187, 96);
             this.btnŃ.Name = "btnŃ";
@@ -346,6 +363,7 @@ namespace FortuneWheel
             // 
             // btnÓ
             // 
+            this.btnÓ.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnÓ.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnÓ.Location = new System.Drawing.Point(279, 96);
             this.btnÓ.Name = "btnÓ";
@@ -358,6 +376,7 @@ namespace FortuneWheel
             // 
             // btnN
             // 
+            this.btnN.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnN.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnN.Location = new System.Drawing.Point(141, 96);
             this.btnN.Name = "btnN";
@@ -370,6 +389,7 @@ namespace FortuneWheel
             // 
             // btnO
             // 
+            this.btnO.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnO.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnO.Location = new System.Drawing.Point(233, 96);
             this.btnO.Name = "btnO";
@@ -382,6 +402,7 @@ namespace FortuneWheel
             // 
             // btnŁ
             // 
+            this.btnŁ.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnŁ.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnŁ.Location = new System.Drawing.Point(49, 96);
             this.btnŁ.Name = "btnŁ";
@@ -394,6 +415,7 @@ namespace FortuneWheel
             // 
             // btnM
             // 
+            this.btnM.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnM.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnM.Location = new System.Drawing.Point(95, 96);
             this.btnM.Name = "btnM";
@@ -406,6 +428,7 @@ namespace FortuneWheel
             // 
             // btnL
             // 
+            this.btnL.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnL.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnL.Location = new System.Drawing.Point(3, 96);
             this.btnL.Name = "btnL";
@@ -418,6 +441,7 @@ namespace FortuneWheel
             // 
             // btnI
             // 
+            this.btnI.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnI.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnI.Location = new System.Drawing.Point(187, 50);
             this.btnI.Name = "btnI";
@@ -430,6 +454,7 @@ namespace FortuneWheel
             // 
             // btnK
             // 
+            this.btnK.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnK.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnK.Location = new System.Drawing.Point(279, 50);
             this.btnK.Name = "btnK";
@@ -442,6 +467,7 @@ namespace FortuneWheel
             // 
             // btnH
             // 
+            this.btnH.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnH.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnH.Location = new System.Drawing.Point(141, 50);
             this.btnH.Name = "btnH";
@@ -454,6 +480,7 @@ namespace FortuneWheel
             // 
             // btnJ
             // 
+            this.btnJ.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnJ.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnJ.Location = new System.Drawing.Point(233, 50);
             this.btnJ.Name = "btnJ";
@@ -466,6 +493,7 @@ namespace FortuneWheel
             // 
             // btnF
             // 
+            this.btnF.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnF.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnF.Location = new System.Drawing.Point(49, 50);
             this.btnF.Name = "btnF";
@@ -478,6 +506,7 @@ namespace FortuneWheel
             // 
             // btnG
             // 
+            this.btnG.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnG.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnG.Location = new System.Drawing.Point(95, 50);
             this.btnG.Name = "btnG";
@@ -490,6 +519,7 @@ namespace FortuneWheel
             // 
             // btnĘ
             // 
+            this.btnĘ.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnĘ.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnĘ.Location = new System.Drawing.Point(3, 50);
             this.btnĘ.Name = "btnĘ";
@@ -502,6 +532,7 @@ namespace FortuneWheel
             // 
             // btnĆ
             // 
+            this.btnĆ.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnĆ.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnĆ.Location = new System.Drawing.Point(187, 4);
             this.btnĆ.Name = "btnĆ";
@@ -514,6 +545,7 @@ namespace FortuneWheel
             // 
             // btnE
             // 
+            this.btnE.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnE.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnE.Location = new System.Drawing.Point(279, 4);
             this.btnE.Name = "btnE";
@@ -526,6 +558,7 @@ namespace FortuneWheel
             // 
             // btnC
             // 
+            this.btnC.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnC.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnC.Location = new System.Drawing.Point(141, 4);
             this.btnC.Name = "btnC";
@@ -538,6 +571,7 @@ namespace FortuneWheel
             // 
             // btnD
             // 
+            this.btnD.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnD.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnD.Location = new System.Drawing.Point(233, 4);
             this.btnD.Name = "btnD";
@@ -550,6 +584,7 @@ namespace FortuneWheel
             // 
             // btnĄ
             // 
+            this.btnĄ.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnĄ.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnĄ.Location = new System.Drawing.Point(49, 4);
             this.btnĄ.Name = "btnĄ";
@@ -562,6 +597,7 @@ namespace FortuneWheel
             // 
             // btnB
             // 
+            this.btnB.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnB.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnB.Location = new System.Drawing.Point(95, 4);
             this.btnB.Name = "btnB";
@@ -574,6 +610,7 @@ namespace FortuneWheel
             // 
             // btnA
             // 
+            this.btnA.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnA.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnA.Location = new System.Drawing.Point(3, 4);
             this.btnA.Name = "btnA";
@@ -599,7 +636,7 @@ namespace FortuneWheel
             // 
             this.tmrCounter.Enabled = true;
             this.tmrCounter.Interval = 1000;
-            this.tmrCounter.Tick += new System.EventHandler(this.timer1_Tick);
+            this.tmrCounter.Tick += new System.EventHandler(this.tmrCounter_Tick);
             // 
             // lbTimeView
             // 
@@ -645,7 +682,7 @@ namespace FortuneWheel
             this.Controls.Add(this.lbMessages);
             this.Controls.Add(this.lbTimeView);
             this.Controls.Add(this.btnGiveUp);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.panKeyboard);
             this.Controls.Add(this.lbCategory);
             this.Controls.Add(this.lbAttemptsCounter);
             this.Controls.Add(this.lbHiddenSentence);
@@ -654,7 +691,7 @@ namespace FortuneWheel
             this.Name = "HangmanGame";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Wisielec";
-            this.panel1.ResumeLayout(false);
+            this.panKeyboard.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -665,7 +702,7 @@ namespace FortuneWheel
         private System.Windows.Forms.Label lbHiddenSentence;
         private System.Windows.Forms.Label lbAttemptsCounter;
         private System.Windows.Forms.Label lbCategory;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panKeyboard;
         private System.Windows.Forms.Button btnZ;
         private System.Windows.Forms.Button btnŹ;
         private System.Windows.Forms.Button btnY;

@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace FortuneWheel
@@ -27,11 +20,13 @@ namespace FortuneWheel
 
         private void btnMode2_Click(object sender, EventArgs e)
         {
+            //TODO : GAMEMODE_2
             ;
         }
 
         private void btnMode3_Click(object sender, EventArgs e)
         {
+            //TODO : GAMEMODE_3
             ;
         }
 
