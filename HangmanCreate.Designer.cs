@@ -146,17 +146,47 @@ namespace FortuneWheel
             // 
             this.nupAttempts.Enabled = false;
             this.nupAttempts.Location = new System.Drawing.Point(162, 143);
+            this.nupAttempts.Maximum = new decimal(new int[] {
+            35,
+            0,
+            0,
+            0});
+            this.nupAttempts.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.nupAttempts.Name = "nupAttempts";
-            this.nupAttempts.Size = new System.Drawing.Size(34, 20);
+            this.nupAttempts.Size = new System.Drawing.Size(44, 20);
             this.nupAttempts.TabIndex = 10;
+            this.nupAttempts.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // nupTime
             // 
             this.nupTime.Enabled = false;
             this.nupTime.Location = new System.Drawing.Point(162, 167);
+            this.nupTime.Maximum = new decimal(new int[] {
+            999,
+            0,
+            0,
+            0});
+            this.nupTime.Minimum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
             this.nupTime.Name = "nupTime";
-            this.nupTime.Size = new System.Drawing.Size(34, 20);
+            this.nupTime.Size = new System.Drawing.Size(44, 20);
             this.nupTime.TabIndex = 11;
+            this.nupTime.Value = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
             // 
             // cbTime
             // 

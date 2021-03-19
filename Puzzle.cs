@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 
 namespace FortuneWheel
 {
-    //TODO : Odpowieni komunikat po grze
     //TODO : Dodanie hiperłącza do linku w informacjach
     //TODO : Refaktoryzacja kodu i podział na metody
     //TODO : ??? Baza haseł z losowym ich wybieraniem

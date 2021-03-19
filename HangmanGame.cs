@@ -22,9 +22,6 @@ namespace FortuneWheel
         {
             InitializeComponent();
 
-
-
-
             LoadData();
         }
 
@@ -99,7 +96,15 @@ namespace FortuneWheel
 
                 if (lbHiddenSentence.Text == sentence)
                 {
-                    lbMessages.Text = ($"Dobre hasło!!!\r\n\r\nTyle sekund zajęło rozwiązanie: {timeCount}s\r\n\r\nBłędy: {failCounter}");
+                    if (data.PossibleAttempts != null && data.TimeRemains != null)
+                        lbMessages.Text = ($"Dobre hasło!!!\r\n\r\nTyle sekund pozostało: {data.TimeRemains}s\r\n\r\nSzanse: {data.PossibleAttempts}");
+                    else if(data.PossibleAttempts != null)
+                        lbMessages.Text = ($"Dobre hasło!!!\r\n\r\nTyle sekund zajęło rozwiązanie: {timeCount}s\r\n\r\nSzanse: {data.PossibleAttempts}");
+                    else if(data.TimeRemains != null)  
+                        lbMessages.Text = ($"Dobre hasło!!!\r\n\r\nTyle sekund pozostało: {data.TimeRemains}s\r\n\r\nBłędy: {failCounter}");
+                    else      
+                        lbMessages.Text = ($"Dobre hasło!!!\r\n\r\nTyle sekund zajęło rozwiązanie: {timeCount}s\r\n\r\nBłędy: {failCounter}");
+
                     tmrCounter.Stop();
                     btnReplay.Enabled = true;
                     panel1.Enabled = false;
