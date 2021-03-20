@@ -30,6 +30,7 @@ namespace FortuneWheel
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HangmanGame));
             this.lbSentence = new System.Windows.Forms.Label();
             this.lbHiddenSentence = new System.Windows.Forms.Label();
             this.lbAttemptsCounter = new System.Windows.Forms.Label();
@@ -688,6 +689,7 @@ namespace FortuneWheel
             this.Controls.Add(this.lbHiddenSentence);
             this.Controls.Add(this.lbSentence);
             this.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "HangmanGame";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Wisielec";

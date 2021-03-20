@@ -29,6 +29,7 @@ namespace FortuneWheel
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainMenu));
             this.btnMode1 = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
             this.btnMode2 = new System.Windows.Forms.Button();
@@ -115,6 +116,7 @@ namespace FortuneWheel
             this.Controls.Add(this.btnMode2);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnMode1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(200, 229);
             this.MinimizeBox = false;
