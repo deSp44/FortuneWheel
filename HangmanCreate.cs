@@ -67,5 +67,10 @@ namespace FortuneWheel
             else
                 nupAttempts.Enabled = false;
         }
+
+        private void tbSentence_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !(char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back || e.KeyChar == (char)Keys.Space);
+        }
     }
 }

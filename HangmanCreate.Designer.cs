@@ -72,6 +72,7 @@ namespace FortuneWheel
             this.tbSentence.Name = "tbSentence";
             this.tbSentence.Size = new System.Drawing.Size(300, 23);
             this.tbSentence.TabIndex = 3;
+            this.tbSentence.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbSentence_KeyPress);
             // 
             // btnAccept
             // 
