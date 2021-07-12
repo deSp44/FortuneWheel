@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Windows.Forms;
+using MainMenu = FortuneWheel.Views.MainMenu;
 
 namespace FortuneWheel
 {
-    static class Program
+    public static class Program
     {
         /// <summary>
         /// Główny punkt wejścia dla aplikacji.

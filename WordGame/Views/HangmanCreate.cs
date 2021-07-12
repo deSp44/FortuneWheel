@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Windows.Forms;
+using FortuneWheel.Model;
 
-namespace FortuneWheel
+namespace FortuneWheel.Views
 {
     public partial class HangmanCreate : Form
     {
-        public static Puzzle _puzzle;
+        public static Puzzle Puzzle;
 
         public HangmanCreate()
         {
@@ -33,15 +34,15 @@ namespace FortuneWheel
         }
         private void CreatePuzzle()
         {
-            _puzzle = new Puzzle
+            Puzzle = new Puzzle
             {
                 Category = cbCategory.Text,
                 Sentence = tbSentence.Text
             };
             if (nupAttempts.Enabled)
-                _puzzle.PossibleAttempts = Convert.ToInt32(nupAttempts.Value);
+                Puzzle.PossibleAttempts = Convert.ToInt32(nupAttempts.Value);
             if (nupTime.Enabled)
-                _puzzle.TimeRemains = Convert.ToInt32(nupTime.Value);
+                Puzzle.TimeRemains = Convert.ToInt32(nupTime.Value);
         }
 
         private void btnExit_Click(object sender, EventArgs e)
@@ -54,18 +55,12 @@ namespace FortuneWheel
 
         private void cbTime_CheckedChanged(object sender, EventArgs e)
         {
-            if (cbTime.Checked)
-                nupTime.Enabled = true;
-            else
-                nupTime.Enabled = false;
+            nupTime.Enabled = cbTime.Checked;
         }
 
         private void cbAttempts_CheckedChanged(object sender, EventArgs e)
         {
-            if (cbAttempts.Checked)
-                nupAttempts.Enabled = true;
-            else
-                nupAttempts.Enabled = false;
+            nupAttempts.Enabled = cbAttempts.Checked;
         }
 
         private void tbSentence_KeyPress(object sender, KeyPressEventArgs e)

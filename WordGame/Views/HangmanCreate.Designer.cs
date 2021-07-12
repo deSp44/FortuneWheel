@@ -1,5 +1,5 @@
 ﻿
-namespace FortuneWheel
+namespace FortuneWheel.Views
 {
     partial class HangmanCreate
     {

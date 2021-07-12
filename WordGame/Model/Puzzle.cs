@@ -1,7 +1,7 @@
-﻿namespace FortuneWheel
+﻿namespace FortuneWheel.Model
 {
     //TODO : Add hiperlink in credits
-    //TODO : ??? Database with random selection of sentences
+    //TODO : Database with random selection of sentences
 
     public class Puzzle
     {

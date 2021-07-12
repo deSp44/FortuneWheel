@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 
-namespace FortuneWheel
+namespace FortuneWheel.Views
 {
     public partial class MainMenu : Form
     {
